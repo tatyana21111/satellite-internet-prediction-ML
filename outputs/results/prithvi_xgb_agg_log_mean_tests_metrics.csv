@@ -1,0 +1,2 @@
+model,target,mae,rmse,spearman_rho,pr_auc,roc_auc,f1_opt,opt_threshold,precision_opt,recall_opt,accuracy_opt,best_iteration,n_train,n_val,n_test,best_learning_rate,best_max_depth,best_n_estimators,best_subsample,best_colsample_bytree,best_reg_lambda
+Prithvi_300M_xgboost_agg_log_mean_tests,log_mean_tests,0.5859448313713074,0.6856243014335632,0.25813452399132,0.1730709053692059,0.7379301587301588,0.26749611197511663,0.6375130414962769,0.15551537070524413,0.9555555555555556,0.5119170984455959,100,4828,1207,965,0.03,4,1200,0.8,0.2,10.0

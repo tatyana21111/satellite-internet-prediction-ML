@@ -1,0 +1,2 @@
+feature_set,target,n_features,mae,rmse,spearman_rho,pr_auc,roc_auc,f1_opt,opt_threshold,precision_opt,recall_opt,accuracy_opt,best_iteration,n_train,n_val,n_test,best_learning_rate,best_max_depth,best_n_estimators,best_subsample,best_colsample_bytree,best_reg_lambda
+Engineered+Prithvi,coverage_fraction,1058,0.009167665615677834,0.025966089218854904,0.49643860228547226,0.9419839140156451,0.9862603174603175,0.8155339805825242,0.01955188438296318,0.7241379310344828,0.9333333333333333,0.960621761658031,245,4828,1207,965,0.05,6,1200,0.8,0.8,1.0

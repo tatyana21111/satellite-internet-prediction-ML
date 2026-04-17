@@ -1,0 +1,34 @@
+# Data (large — not committed)
+data/raw/
+data/interim/
+data/processed/
+
+# Cached embeddings (large .npz files)
+outputs/features/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.env
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model weights (large binary files)
+*.pt
+*.pth
+*.ckpt
+*.h5
+
+# IDE
+.claude/

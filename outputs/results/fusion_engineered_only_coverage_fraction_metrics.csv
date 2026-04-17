@@ -1,0 +1,2 @@
+feature_set,target,n_features,mae,rmse,spearman_rho,pr_auc,roc_auc,f1_opt,opt_threshold,precision_opt,recall_opt,accuracy_opt,best_iteration,n_train,n_val,n_test,best_learning_rate,best_max_depth,best_n_estimators,best_subsample,best_colsample_bytree,best_reg_lambda
+Engineered only,coverage_fraction,34,0.00995616614818573,0.028964707627892494,0.4959319010368936,0.9171444875416551,0.9843428571428571,0.7830188679245284,0.018594298511743546,0.680327868852459,0.9222222222222223,0.9523316062176166,440,4828,1207,965,0.05,6,1200,0.8,0.8,1.0
