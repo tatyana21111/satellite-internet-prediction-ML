@@ -45,16 +45,29 @@ The project compares three tiers of models:
 
 ## Notebooks
 
-Run notebooks in order on **Google Colab with GPU** (T4 minimum). Each notebook is self-contained: it installs dependencies, clones the repo, and syncs data from Google Drive.
+Run notebooks in order on **Google Colab with GPU** (T4 minimum). NB01 must be run first to generate all data; NB02-07 consume the outputs.
 
+| # | Notebook | Description |
+|---|----------|-------------|
+| 01 | `01_data_exploration.ipynb` | Download Ookla data, build patch grid, extract stratification features, sample patches, export HLS imagery, compute aggregate targets, and save train/val/test splits |
+| 02 | `02_binary_baselines.ipynb` | Five binary classification baselines (XGBoost, MOSAIKS, ResNet-18, DINOv2, Prithvi linear) |
+| 03 | `03_aggregate_baselines.ipynb` | MOSAIKS, ResNet-18, DINOv2 retrained on aggregate regression targets |
+| 04 | `04_prithvi_linear_probe.ipynb` | Prithvi-EO-2.0 frozen encoder + linear regression head |
+| 05 | `05_prithvi_mlp_head.ipynb` | Prithvi-EO-2.0 frozen encoder + 2-layer MLP regression head |
+| 06 | `06_xgboost_prithvi_fusion.ipynb` | XGBoost combining engineered features + Prithvi embeddings, with ablation |
+| 07 | `07_qualitative_analysis.ipynb` | Spatial error analysis, regional summaries, satellite overlay case studies |
 
-1. `01_data_exploration.ipynb`: download data and create train inputs 
-2. `02_binary_baselines.ipynb`: five binary classification baselines (XGBoost, MOSAIKS, ResNet-18, DINOv2, Prithvi linear) 
-3. `03_aggregate_baselines.ipynb`: same five models retrained on aggregate regression targets 
-4. `04_prithvi_linear_probe.ipynb`: Prithvi-EO-2.0 frozen encoder + linear regression head 
-5. `05_prithvi_mlp_head.ipynb`: Prithvi-EO-2.0 frozen encoder + 2-layer MLP regression head 
-6. `06_xgboost_prithvi_fusion.ipynb`: XGBoost combining engineered features + Prithvi embeddings, with ablation 
-7. `07_qualitative_analysis.ipynb`: spatial error analysis, regional summaries, satellite overlay case studies 
+### NB01 outputs
+
+NB01 produces the following files that all downstream notebooks depend on:
+
+| File | Location | Persistence |
+|------|----------|-------------|
+| ~6,970 GeoTIFF patches (224×224×6 HLS bands) | `data/raw/patches_2019/*.tif` | Synced to Google Drive at end of Step 7 |
+| Sampled patch metadata + binary labels | `data/processed/sampled_patches.csv` | Committed to git |
+| Metadata + aggregate targets + train/val/test splits | `data/processed/patches_with_splits.csv` | Committed to git |
+
+**Important:** The GeoTIFF patches (~2 GB) are too large for git and live only in Colab's ephemeral storage during NB01. At the end of Step 7, they are automatically copied to `Google Drive → patches_2019/`. NB02-07 sync these patches back from Drive into the Colab runtime at startup (Cell 0.3). If patches are already present locally, the sync is skipped.
 
 ## Evaluation
 
@@ -84,10 +97,19 @@ satellite-internet-prediction/
 
 ## Reproducibility
 
+### First-time setup (run once)
+1. Open `01_data_exploration.ipynb` in Google Colab (GPU runtime).
+2. Run all cells. Steps 1-7 take ~2-3 hours (GEE exports + HLS patch downloads).
+3. At the end of Step 7, patches are automatically saved to Google Drive (`patches_2019/`).
+4. Step 8 computes aggregate targets and saves `patches_with_splits.csv` (committed to git).
+
+### Running NB02-07
 1. Open any notebook in Google Colab (GPU runtime).
-2. The first cell installs all dependencies (`terratorch`, `rasterio`, `scikit-learn`, etc.).
-3. Cell 0.2 clones this repository; Cell 0.3 syncs patch data from Google Drive.
-4. Run all cells sequentially. Results are saved to `outputs/`.
+2. Cell 0.1 installs dependencies. For NB04-07, the runtime restarts after installing `terratorch` — re-run from Cell 0.2 after restart.
+3. Cell 0.2 clones this repository.
+4. Cell 0.3 syncs the ~7K GeoTIFF patches from Google Drive into `data/raw/patches_2019/`.
+5. Step 2 loads `patches_with_splits.csv` for metadata, labels, and pre-computed splits.
+6. Run all remaining cells sequentially. Results are saved to `outputs/`.
 
 **Seeds:** All notebooks set `random.seed(42)`, `np.random.seed(42)`, `torch.manual_seed(42)` at the top for reproducibility.
 
