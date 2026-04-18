@@ -67,7 +67,9 @@ NB01 produces the following files that all downstream notebooks depend on:
 | Sampled patch metadata + binary labels | `data/processed/sampled_patches.csv` | Committed to git |
 | Metadata + aggregate targets + train/val/test splits | `data/processed/patches_with_splits.csv` | Committed to git |
 
-**Important:** The GeoTIFF patches (~2 GB) are too large for git and live only in Colab's ephemeral storage during NB01. At the end of Step 7, they are automatically copied to `Google Drive → patches_2019/`. NB02-07 sync these patches back from Drive into the Colab runtime at startup (Cell 0.3). If patches are already present locally, the sync is skipped.
+**Important — Google Drive persistence:**
+- **GeoTIFF patches** (~2 GB): Too large for git. NB01 Step 7b copies them to `Google Drive → patches_2019/`. NB02-07 sync them back at startup (Cell 0.4).
+- **Prithvi embeddings** (~80 MB): Whichever of NB04/05/06 runs first extracts frozen 1024-d embeddings and caches them to `Google Drive → prithvi_embeddings/`. Subsequent notebooks load from Drive, avoiding redundant extraction and ensuring identical embeddings across experiments.
 
 ## Evaluation
 
