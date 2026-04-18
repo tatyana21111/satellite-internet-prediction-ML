@@ -1,1 +1,1 @@
-/content/internet-connectivity-prediction/checkpoints/prithvi_linear_epoch=00_val_f1=0.4682.ckpt
+/content/satellite-internet-prediction-ML/checkpoints/prithvi_linear_epoch=00_val_f1=0.3415.ckpt
