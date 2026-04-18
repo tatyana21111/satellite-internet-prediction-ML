@@ -90,9 +90,8 @@ satellite-internet-prediction/
 ├── outputs/
 │   ├── results/        # Metrics CSVs per model
 │   ├── models/         # Trained model artifacts (.pkl, .json)
-│   ├── figures/        # Generated plots (not committed)
-│   ├── features/       # Cached Prithvi embeddings (not committed)
-│   └── maps/           # Spatial visualisations
+│   ├── figures/        # Generated plots
+│   └── features/       # Cached Prithvi embeddings (not committed)
 ├── .gitignore
 └── README.md
 ```
