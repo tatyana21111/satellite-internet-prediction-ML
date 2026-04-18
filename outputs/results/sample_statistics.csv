@@ -1,0 +1,5 @@
+Split,N,Positive rate,Coverage fraction mean,Coverage fraction std,Log-mean tests mean,Log-mean tests std
+Train,4828,33.8%,0.0293,0.0835,0.534,0.837
+Val,1207,33.2%,0.0308,0.0964,0.520,0.835
+Test,965,11.7%,0.0062,0.0248,0.166,0.497
+Overall,7000,30.7%,0.0264,0.0810,0.481,0.808
