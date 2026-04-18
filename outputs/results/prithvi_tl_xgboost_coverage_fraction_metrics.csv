@@ -1,0 +1,2 @@
+model,target,mae,rmse,spearman_rho,pr_auc,roc_auc,f1_opt,opt_threshold,precision_opt,recall_opt,accuracy_opt,n_train,n_test
+Prithvi_300M_TL_xgboost_coverage_fraction,coverage_fraction,0.03296389866975262,0.04709826513969019,0.26279626224315056,0.1443123318675841,0.717968253968254,0.2857142857142857,0.019881419837474823,0.16981132075471697,0.9,0.5803108808290155,6035,965
