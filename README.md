@@ -107,9 +107,10 @@ satellite-internet-prediction/
 
 ### First-time setup (run once)
 1. Open `01_data_exploration.ipynb` in Google Colab (GPU runtime).
-2. Run all cells. Steps 1-7 take ~2-3 hours (GEE exports + HLS patch downloads).
-3. At the end of Step 7, patches are automatically saved to Google Drive (`patches_2019/`).
-4. Step 8 computes aggregate targets and saves `patches_with_splits.csv` (committed to git).
+2. **Google Earth Engine:** NB01 requires a GEE-enabled Google Cloud project. Replace the `GEE_PROJECT` variable in the setup cell with your own project ID. Register at [earthengine.google.com](https://earthengine.google.com/) if needed.
+3. Run all cells. Steps 1-7 take ~2-3 hours (GEE exports + HLS patch downloads).
+4. At the end of Step 7, patches are automatically saved to Google Drive (`patches_2019/`).
+5. Step 8 computes aggregate targets and saves `patches_with_splits.csv` (committed to git).
 
 ### Running NB02-08
 1. Open any notebook in Google Colab (GPU runtime).
