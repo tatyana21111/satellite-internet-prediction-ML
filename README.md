@@ -119,6 +119,7 @@ satellite-internet-prediction/
 4. Cell 0.3 syncs the ~7K GeoTIFF patches from Google Drive into `data/raw/patches_2019/`.
 5. Step 2 loads `patches_with_splits.csv` for metadata, labels, and pre-computed splits.
 6. Run all remaining cells sequentially. Results are saved to `outputs/`.
+7. Each notebook includes a **"Save Outputs to Google Drive"** cell near the end. This copies all generated figures, metrics, and model artifacts to `Google Drive → satellite-internet-outputs/NBxx/`, ensuring results persist after the Colab runtime disconnects.
 
 > **Note:** Each notebook ends with a "Push to GitHub" cell marked **(author only)**. This cell commits outputs back to the repository and requires a GitHub personal access token. Reviewers and reproducers can safely skip it — all pre-computed results are already committed.
 
