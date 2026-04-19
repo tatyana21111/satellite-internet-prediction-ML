@@ -119,6 +119,8 @@ satellite-internet-prediction/
 5. Step 2 loads `patches_with_splits.csv` for metadata, labels, and pre-computed splits.
 6. Run all remaining cells sequentially. Results are saved to `outputs/`.
 
+> **Note:** Each notebook ends with a "Push to GitHub" cell marked **(author only)**. This cell commits outputs back to the repository and requires a GitHub personal access token. Reviewers and reproducers can safely skip it — all pre-computed results are already committed.
+
 **Seeds:** All notebooks set `random.seed(42)`, `np.random.seed(42)`, `torch.manual_seed(42)` at the top for reproducibility.
 
 ## Key References
