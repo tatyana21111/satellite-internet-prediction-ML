@@ -115,7 +115,7 @@ satellite-internet-prediction/
 ### Running NB02-08
 1. Open any notebook in Google Colab (GPU runtime).
 2. Cell 0.1 installs dependencies. For NB04-06 and NB08, the runtime restarts after installing `terratorch` — re-run from Cell 0.2 after restart.
-3. Cell 0.2 clones this repository.
+3. Cell 0.2 clones this repository (only on first run — the cell is safe to re-run and will not overwrite local edits). To pull the latest remote changes, uncomment the `!git pull` line in the clone cell.
 4. Cell 0.3 syncs the ~7K GeoTIFF patches from Google Drive into `data/raw/patches_2019/`.
 5. Step 2 loads `patches_with_splits.csv` for metadata, labels, and pre-computed splits.
 6. Run all remaining cells sequentially. Results are saved to `outputs/`.
